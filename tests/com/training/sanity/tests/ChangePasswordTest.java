@@ -1,6 +1,9 @@
 package com.training.sanity.tests;
 
 import java.util.Properties;
+
+import static org.testng.Assert.assertEquals;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -58,21 +61,24 @@ public class ChangePasswordTest {
 		driver.quit();
 	}
 	@Test
+	//to validate validation message is displayed when 2 different password is given
 	public void validateChangePasswordErrorMessage(){
 		loginPOM.sendUserName("manzoor@gmail.com");
-		loginPOM.sendPassword("manzoor");
+		loginPOM.sendPassword("mehadi");
 		loginPOM.clickLoginBtn();
 		changePasswordPOM.clickChangepassword();
-		changePasswordPOM.enterPassword("manzoor");
-		changePasswordPOM.re_EnterPassowrd("mehadi");
-		changePasswordPOM.verifyPassword("manzoor", "mehadi");
+		changePasswordPOM.enterPassword("mehadi");
+		changePasswordPOM.re_EnterPassowrd("manzoor");
+		String actualResult=changePasswordPOM.verifyPassword("mehadi", "manzoor");
+		String expectedResult="Password confirmation does not match password!";
+		assertEquals(actualResult,expectedResult);
 		screenShot.captureScreenShot("validateerrorpasswordmsg");
 	}
-	
+	// to validate password has been changed successfully
 	@Test(dependsOnMethods={"validateChangePasswordErrorMessage"})
 	public void validateChangePassword(){
 		loginPOM.sendUserName("manzoor@gmail.com");
-		loginPOM.sendPassword("manzoor");
+		loginPOM.sendPassword("mehadi");
 		loginPOM.clickLoginBtn();
 		screenShot.captureScreenShot("Changepassword_Login");
 		changePasswordPOM.clickChangepassword();
@@ -80,7 +86,9 @@ public class ChangePasswordTest {
 		changePasswordPOM.re_EnterPassowrd("mehadi");
 		screenShot.captureScreenShot("passwordEntry");
 		changePasswordPOM.clickContinue();
-		changePasswordPOM.validateSuccessmesssage();
+		String actualResult=changePasswordPOM.validateSuccessmesssage();
+		String expectedResult="Success: Your password has been successfully updated.";
+		assertEquals(actualResult, expectedResult);
 		screenShot.captureScreenShot("successmessage");
 	}
 	

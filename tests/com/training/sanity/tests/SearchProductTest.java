@@ -1,6 +1,8 @@
 package com.training.sanity.tests;
 
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -45,12 +47,20 @@ public class SearchProductTest {
 		driver.quit();
 	}
 	@Test
+	//to search the product
 	public void searchProduct() throws InterruptedException{
-		searchproduct.clickEthnic();
+		//click on shop now and then click on jewellery
+		searchproduct.clickJewellery();
+		//get the sortby list box values
 		searchproduct.validateSortByValues();
-		searchproduct.clickOnSortByName();
+		// click on sortby list value: Name(A-Z)
+		String actual=searchproduct.clickOnSortByName();
+		String expected="cosmetics";
+		assertEquals(actual, expected);
+		//capture teh screenshot
 		screenShot.captureScreenShot("SortByName");
 		Thread.sleep(15000);
+		//click on sortby list value:Ratings(Highest)
 		searchproduct.clickOnSortByRatings();
 		Thread.sleep(15000);
 		screenShot.captureScreenShot("SortByHighestRating");

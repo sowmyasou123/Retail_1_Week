@@ -25,34 +25,42 @@ public class SearchProductPOM {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);	
 	}
+	//xpath to click on Shopnow
 	@FindBy(xpath="//*[@id='Menu_VIfWm2LT']/nav/ul/li[2]/a/span") 
-	private WebElement element;
+	private WebElement shopnow;
 	
-	@FindBy(xpath="//*[@href='http://retail.hommelle.com/ethnic']/span")
-	private WebElement clickethnic;
+	//xpath to click on Jewellery
+	@FindBy(xpath="//*[@href='http://retail.hommelle.com/product/category?path=467']/span")
+	private WebElement clickJewellery;
 	
+	//xpath to select sortby list box
 	@FindBy(xpath="//*[@id='ProductsSystem_QQI8r357']/nav/div/div[3]/select")
 	private WebElement sortby;
-	@FindBy(xpath="//*[@src='http://retail.hommelle.com/image/cache/placeholder-350x400.png' and @alt='bottle']")
-	private WebElement bottle;
+	//xpath to get cosmetics image
+	@FindBy(xpath="//*[@src='http://retail.hommelle.com/image/cache/placeholder-350x400.png' and @alt='cosmetics']")
+	private WebElement cosmetics;
+	
+	//xpath to get highest rating of the product
 	@FindBy(xpath="//*[@href='http://retail.hommelle.com/ethnic/home?sort=rating&order=DESC']/span/span/img")
 	private WebElement image;
+	//xpath to validate highest rating after clicking on the image
 	@FindBy(xpath="//*[@id='ProductRatingSystem_E8ESK1KA']/div/span[1]")
 	private WebElement review;
 	
 
-	
-	public void clickEthnic(){
+	//function to click on Jewellery category in SHOPNOW Menu
+	public void clickJewellery(){
 		Actions action= new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Menu_VIfWm2LT']/nav/ul/li[2]/a/span")));
-		action.moveToElement(element).build().perform();
-		element.click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@href='http://retail.hommelle.com/ethnic']/span")));
-		action.moveToElement(clickethnic).build().perform();
-		clickethnic.click();
+		action.moveToElement(shopnow).build().perform();
+		shopnow.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@href='http://retail.hommelle.com/product/category?path=467']/span")));
+		action.moveToElement(clickJewellery).build().perform();
+		clickJewellery.click();
 		
 	}
+	//function to validate values of sortby list box
 	public void validateSortByValues(){
 		Select sort= new Select(sortby);
 		List<WebElement>sortbylist=sort.getOptions();
@@ -62,14 +70,15 @@ public class SearchProductPOM {
 		
 	
 	}
-	public void clickOnSortByName(){
+	//function to click on list value:Name (A - Z)
+	public String clickOnSortByName(){
 		Select sort= new Select(sortby);
 		sort.selectByVisibleText("Name (A - Z)");
-		String expected="bottle";
-		String actual= bottle.getAttribute("alt");
-		assertEquals(actual, expected);
+		String actual= cosmetics.getAttribute("alt");
+		return actual;
+		
 		}
-	
+	//function to click on list value:Rating (Highest)
 	public void clickOnSortByRatings(){
 		Select sort= new Select(sortby);
 		WebDriverWait wait = new WebDriverWait(driver, 20);
