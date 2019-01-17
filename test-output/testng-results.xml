@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="67294" started-at="2019-01-11T11:22:15Z" finished-at="2019-01-11T11:23:22Z">
+  <suite name="Default suite" duration-ms="29175" started-at="2019-01-17T11:37:06Z" finished-at="2019-01-17T11:37:35Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="67294" started-at="2019-01-11T11:22:15Z" finished-at="2019-01-11T11:23:22Z">
-      <class name="com.training.sanity.tests.SearchProductTest">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.SearchProductTest@5c7fa833]" name="setUpBeforeClass" is-config="true" duration-ms="18" started-at="2019-01-11T16:52:15Z" finished-at="2019-01-11T16:52:15Z">
+    <test name="Default test" duration-ms="29175" started-at="2019-01-17T11:37:06Z" finished-at="2019-01-17T11:37:35Z">
+      <class name="com.training.sanity.tests.AddEditCatalogTest">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.AddEditCatalogTest@5c7fa833]" name="setUpBeforeClass" is-config="true" duration-ms="20" started-at="2019-01-17T17:07:06Z" finished-at="2019-01-17T17:07:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.SearchProductTest@5c7fa833]" name="setUp" is-config="true" duration-ms="9428" started-at="2019-01-11T16:52:15Z" finished-at="2019-01-11T16:52:24Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.AddEditCatalogTest@5c7fa833]" name="setUp" is-config="true" duration-ms="7664" started-at="2019-01-17T17:07:06Z" finished-at="2019-01-17T17:07:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="searchProduct()[pri:0, instance:com.training.sanity.tests.SearchProductTest@5c7fa833]" name="searchProduct" duration-ms="56051" started-at="2019-01-11T16:52:24Z" finished-at="2019-01-11T16:53:20Z">
+        <test-method status="PASS" signature="AddCategory()[pri:0, instance:com.training.sanity.tests.AddEditCatalogTest@5c7fa833]" name="AddCategory" duration-ms="6544" started-at="2019-01-17T17:07:13Z" finished-at="2019-01-17T17:07:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchProduct -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.SearchProductTest@5c7fa833]" name="tearDown" is-config="true" duration-ms="1767" started-at="2019-01-11T16:53:20Z" finished-at="2019-01-11T16:53:22Z">
+        </test-method> <!-- AddCategory -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.AddEditCatalogTest@5c7fa833]" name="tearDown" is-config="true" duration-ms="1803" started-at="2019-01-17T17:07:20Z" finished-at="2019-01-17T17:07:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.SearchProductTest -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.AddEditCatalogTest@5c7fa833]" name="setUp" is-config="true" duration-ms="5655" started-at="2019-01-17T17:07:22Z" finished-at="2019-01-17T17:07:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Editcategory()[pri:0, instance:com.training.sanity.tests.AddEditCatalogTest@5c7fa833]" name="Editcategory" duration-ms="5696" started-at="2019-01-17T17:07:27Z" finished-at="2019-01-17T17:07:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Editcategory -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.AddEditCatalogTest@5c7fa833]" name="tearDown" is-config="true" duration-ms="1766" started-at="2019-01-17T17:07:33Z" finished-at="2019-01-17T17:07:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.training.sanity.tests.AddEditCatalogTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
