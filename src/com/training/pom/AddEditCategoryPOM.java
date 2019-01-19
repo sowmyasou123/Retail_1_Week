@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddEditCatalogPOM {
+public class AddEditCategoryPOM {
 	private WebDriver driver;
 	
-	public AddEditCatalogPOM(WebDriver driver) {
+	public AddEditCategoryPOM(WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}
@@ -33,6 +33,12 @@ public class AddEditCatalogPOM {
 	private WebElement savebtn;
 	@FindBy(xpath="//*[@id='content']/div[2]/div")
 	private WebElement successMsg;
+	@FindBy(xpath="//*[@id='content']/div/div/div/button")
+	private WebElement editSaveBtn;
+	
+	public void clickOnAfterEditSave(){
+		editSaveBtn.click();
+	}
 	
 	public WebElement validatesuccessmsg(){
 		return successMsg;
@@ -75,19 +81,15 @@ public class AddEditCatalogPOM {
 		List<WebElement>catgRowSize=driver.findElements(By.xpath("//table/tbody/tr"));
 		int rowSize=catgRowSize.size();
 		System.out.println(rowSize);
-		/*WebElement secColumn= driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]"));
-		String ColumnText= secColumn.getText();
-		driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]/a")).click();
-		metaTagTitle.clear();
-		metaTagTitle.sendKeys(newcloth);*/
 		for(int i=1;i<=rowSize;i++){
-			WebElement secColumn= driver.findElement(By.xpath("//table/tbody/tr[i]/td[2]"));
+			WebElement secColumn= driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[2]"));
 			String ColumnText= secColumn.getText();
 			
 			if(ColumnText.equalsIgnoreCase("Clothing")){
-				driver.findElement(By.xpath("//table/tbody/tr[i]/td[4]/a")).click();
+				driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]/a")).click();
 				metaTagTitle.clear();
 				metaTagTitle.sendKeys(newcloth);
+				break;
 			}
 			else{
 				continue;

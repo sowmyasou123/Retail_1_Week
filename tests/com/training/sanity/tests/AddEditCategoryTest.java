@@ -15,18 +15,17 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.AddEditCatalogPOM;
+import com.training.pom.AddEditCategoryPOM;
 import com.training.pom.LoginAdminPOM;
-import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class AddEditCatalogTest {
+public class AddEditCategoryTest {
 	
 	private WebDriver driver;
 	private String adminUrl;
 	private LoginAdminPOM loginadminpom;
-	private AddEditCatalogPOM addeditcatlog;
+	private AddEditCategoryPOM addeditcategory;
 	private static Properties properties;
 	private ScreenShot screenShot;
 	
@@ -41,7 +40,7 @@ public class AddEditCatalogTest {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginadminpom = new LoginAdminPOM(driver);
-		addeditcatlog= new AddEditCatalogPOM(driver);
+		addeditcategory= new AddEditCategoryPOM(driver);
 		adminUrl = properties.getProperty("adminURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -60,15 +59,17 @@ public class AddEditCatalogTest {
 	  loginadminpom.sendAdminName("admin");
 	  loginadminpom.sendAdminPassword("admin@123");
 	  loginadminpom.clickLoginBtn();
-	  addeditcatlog.mouseOveronMenucatalog();
-	  addeditcatlog.mouseOverandClickOncatagories();
-	  addeditcatlog.clickOnAddCatagory();
-	  addeditcatlog.enterCatagoryName("Clothing");
-	  addeditcatlog.enterMetaTagTitle("cloths");
-	  addeditcatlog.clickOnSave();
+	  screenShot.captureScreenShot("adminloginscreen");
+	  addeditcategory.mouseOveronMenucatalog();
+	  addeditcategory.mouseOverandClickOncatagories();
+	  addeditcategory.clickOnAddCatagory();
+	  addeditcategory.enterCatagoryName("Clothing");
+	  addeditcategory.enterMetaTagTitle("cloths");
+	  screenShot.captureScreenShot("addednewcatagory");
+	  addeditcategory.clickOnSave();
+	  screenShot.captureScreenShot("successmessage");
 	  String expectedResult="Success: You have modified categories!";
-	  String actualResult= addeditcatlog.validatesuccessmsg().getText();
-	  System.out.println(actualResult);
+	  String actualResult= addeditcategory.validatesuccessmsg().getText();
 	  assertTrue(actualResult.contains(expectedResult));
   }
   
@@ -77,9 +78,16 @@ public class AddEditCatalogTest {
 	  loginadminpom.sendAdminName("admin");
 	  loginadminpom.sendAdminPassword("admin@123");
 	  loginadminpom.clickLoginBtn();
-	  addeditcatlog.mouseOveronMenucatalog();
-	  addeditcatlog.mouseOverandClickOncatagories();
-	  addeditcatlog.clickOnEditCatalog("newclothing");
+	  addeditcategory.mouseOveronMenucatalog();
+	  addeditcategory.mouseOverandClickOncatagories();
+	  addeditcategory.clickOnEditCatalog("newcloths");
+	  screenShot.captureScreenShot("EditedmetaTitle");
+	  addeditcategory.clickOnAfterEditSave();
+	  screenShot.captureScreenShot("AfterEditmetatitle");
+	  String expectedResult="Success: You have modified categories!";
+	  String actualResult= addeditcategory.validatesuccessmsg().getText();
+	  System.out.println(actualResult);
+	  assertTrue(actualResult.contains(expectedResult));
 	  
   }
 }

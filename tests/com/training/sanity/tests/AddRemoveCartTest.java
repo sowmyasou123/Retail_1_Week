@@ -54,11 +54,6 @@ public class AddRemoveCartTest {
 	@Test
 	// to validate add to cart and remove from the cart functionality
 	public void addRemoveCartTest() throws InterruptedException {
-		/*
-		 * loginPOM.sendUserName("sowmyasou123@gmail.com");
-		 * loginPOM.sendPassword("sowm@123"); loginPOM.clickLoginBtn();
-		 * Thread.sleep(5000);
-		 */
 		addremovecart.clickJewellery();
 		addremovecart.clickOnImage();
 		addremovecart.moveToNextWindow();
