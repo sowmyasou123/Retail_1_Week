@@ -112,7 +112,7 @@ public class AddRemoveCartPOM {
 		 * wait.until(ExpectedConditions
 		 * .visibilityOfElementLocated(By.xpath("//*[@id='button-cart']")));
 		 */
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		addToCart.click();
 	}
 

@@ -36,6 +36,15 @@ public class AddEditCategoryPOM {
 	@FindBy(xpath="//*[@id='content']/div/div/div/button")
 	private WebElement editSaveBtn;
 	
+	public String getCategoryName(){
+		String cat=catagoryName.getAttribute("value");
+		return cat;
+	}
+	public String getmetaTagTitle(){
+		String meta= metaTagTitle.getAttribute("value");
+		return meta;
+	}
+	
 	public void clickOnAfterEditSave(){
 		editSaveBtn.click();
 	}

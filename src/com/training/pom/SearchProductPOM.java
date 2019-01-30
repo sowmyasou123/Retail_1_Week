@@ -40,12 +40,10 @@ public class SearchProductPOM {
 	@FindBy(xpath="//*[@src='http://retail.hommelle.com/image/cache/placeholder-350x400.png' and @alt='cosmetics']")
 	private WebElement cosmetics;
 	
-	//xpath to get highest rating of the product
-	@FindBy(xpath="//*[@href='http://retail.hommelle.com/ethnic/home?sort=rating&order=DESC']/span/span/img")
-	private WebElement image;
-	//xpath to validate highest rating after clicking on the image
-	@FindBy(xpath="//*[@id='ProductRatingSystem_E8ESK1KA']/div/span[1]")
-	private WebElement review;
+	//xpath to get highest rating of the products
+	@FindBy(xpath="//*[@id='ProductsSystem_QQI8r357']/div[1]/div/div/div[3]/div/div/div[1]/div/span")
+	private WebElement images;
+	
 	
 
 	//function to click on Jewellery category in SHOPNOW Menu
@@ -81,17 +79,14 @@ public class SearchProductPOM {
 	//function to click on list value:Rating (Highest)
 	public void clickOnSortByRatings(){
 		Select sort= new Select(sortby);
-		WebDriverWait wait = new WebDriverWait(driver, 20);
 		sort.selectByVisibleText("Rating (Highest)");
-		image.click();
-		ArrayList<String> nextwindow = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(nextwindow.get(1));
-		/*wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//*[@id='ProductRatingSystem_E8ESK1KA']/div/span[1]")));*/
-		String expected="5/5";
-		String actual=review.getText();
-		
-		assertEquals(actual, expected);
+	}
+	public String[] validateHighestRating(){
+		String ratingimg[] = null;
+		List<WebElement> ratingImages= driver.findElements(By.xpath("//*[@id='ProductsSystem_QQI8r357']/div[1]/div/div/div[3]/div/div/div[1]/div/span"));
+		 ratingimg[0]=ratingImages.get(0).getText();
+		ratingimg[1]=ratingImages.get(1).getText();
+		return ratingimg;
 		
 		
 	}

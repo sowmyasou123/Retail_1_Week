@@ -57,13 +57,20 @@ public class SearchProductTest {
 		String actual=searchproduct.clickOnSortByName();
 		String expected="cosmetics";
 		assertEquals(actual, expected);
-		//capture teh screenshot
+		//capture the screenshot
 		screenShot.captureScreenShot("SortByName");
 		Thread.sleep(15000);
 		//click on sortby list value:Ratings(Highest)
 		searchproduct.clickOnSortByRatings();
 		Thread.sleep(15000);
 		screenShot.captureScreenShot("SortByHighestRating");
+		/*String image[]=searchproduct.validateHighestRating();
+		String expectedRating="5/5";
+		String actualRatingImage1= image[0];
+		String actualRatingImage2=image[1];
+		assertEquals(actualRatingImage1, expectedRating);
+		assertEquals(actualRatingImage2, expectedRating);*/
+		
 	}
 	
 }

@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
@@ -37,16 +38,18 @@ public class ReturnOrderTest {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 	}
-
+	@Parameters("browser")
 	@BeforeMethod
-	public void setUp() throws Exception {
-		driver = DriverFactory.getDriver(DriverNames.CHROME);
+	public void setUp(String browser) throws Exception {
+		if(browser.equalsIgnoreCase("firefox")){
+		driver = DriverFactory.getDriver(DriverNames.FIREFOX);
 		loginPOM = new LoginPOM(driver); 
 		returnorder= new ReturnOrderPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
+		}
 	}
 	
 	@AfterMethod

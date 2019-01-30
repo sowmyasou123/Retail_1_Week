@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Sample test Suite]">
-  <test name="Sample test(failed)">
+<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [Sample test Suite]" parallel="tests">
+  <test name="Sample test1(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.training.regression.tests.LoginDBTest">
+      <class name="com.training.sanity.tests.LoginAdminTest">
         <methods>
           <include name="tearDown"/>
-          <include name="loginDBTest"/>
           <include name="setUp"/>
+          <include name="ValidateErrorPasswordMsg"/>
           <include name="setUpBeforeClass"/>
         </methods>
-      </class> <!-- com.training.regression.tests.LoginDBTest -->
+      </class> <!-- com.training.sanity.tests.LoginAdminTest -->
     </classes>
-  </test> <!-- Sample test(failed) -->
+  </test> <!-- Sample test1(failed) -->
+  <test name="Sample test2(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.training.sanity.tests.ReturnOrderTest">
+        <methods>
+          <include name="ReturnOrder"/>
+          <include name="tearDown"/>
+          <include name="setUpBeforeClass"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.training.sanity.tests.ReturnOrderTest -->
+    </classes>
+  </test> <!-- Sample test2(failed) -->
 </suite> <!-- Failed suite [Sample test Suite] -->

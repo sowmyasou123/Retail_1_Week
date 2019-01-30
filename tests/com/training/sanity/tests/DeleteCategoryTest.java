@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
@@ -43,7 +44,9 @@ public class DeleteCategoryTest {
 	}
 
 	@BeforeMethod
-	public void setUp() throws Exception {
+	@Parameters("browser")
+	public void setUp(String browser) throws Exception {
+		if(browser.equalsIgnoreCase("chrome")){
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginadminpom = new LoginAdminPOM(driver);
 		addeditcategory= new AddEditCategoryPOM(driver);
@@ -52,6 +55,7 @@ public class DeleteCategoryTest {
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(adminUrl);
+		}
 	}
 	
 	@AfterMethod
@@ -80,7 +84,7 @@ public class DeleteCategoryTest {
 		  addeditcategory.enterMetaTagTitle("abb");
 		  addeditcategory.clickOnSave();
 	}
-  @Test
+  @Test (dependsOnMethods={"AddCategories"})
   public void DeleteCategories() {
 	  loginadminpom.sendAdminName("admin");
 	  loginadminpom.sendAdminPassword("admin@123");

@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.training.bean.AddCategoryBean;
 import com.training.bean.LoginBean;
 import com.training.connection.GetConnection;
+
 import com.training.utility.LoadDBDetails;
 
 // Data Access Object 
@@ -54,8 +56,36 @@ public class ELearningDAO {
 		return list; 
 	}
 	
+	public List<AddCategoryBean> getCategory(){
+		String sql = properties.getProperty("get.category"); 
+		
+		GetConnection gc  = new GetConnection();
+		List<AddCategoryBean> list = null;
+		try {
+			gc.ps1 = GetConnection.getMySqlConnection(LoadDBDetails.getDBDetails()).prepareStatement(sql); 
+			list = new ArrayList<AddCategoryBean>(); 
+			
+			gc.rs1 = gc.ps1.executeQuery(); 
+			
+			while(gc.rs1.next()) {
+			
+				AddCategoryBean temp = new AddCategoryBean(); 
+				temp.setCategoryname(gc.rs1.getString(1));
+				temp.setMetatagtitle(gc.rs1.getString(2));
+
+				list.add(temp); 
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list; 
+	}
+	
 	public static void main(String[] args) {
 		new ELearningDAO().getLogins().forEach(System.out :: println);
+		new ELearningDAO().getCategory().forEach(System.out:: println);
 	}
 	
 	

@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name = "Sample test Suite">
+<suite name = "Sample test Suite" parallel="tests" thread-count="3">
    <test name = "Sample test">
+   <parameter name="browser" value="chrome" />
       <classes>
-         <class name = "com.training.sanity.tests.SearchProductTest" />
+         <class name = "com.training.sanity.tests.DeleteCategoryTest" />
+      </classes>
+   </test>
+   
+   <test name = "Sample test1">
+    <parameter name="browser" value="firefox" />
+      <classes>
+         <class name = "com.training.sanity.tests.LoginAdminTest" />
+      </classes>
+   </test>
+   
+    <test name = "Sample test2">
+    <parameter name="browser" value="firefox" />
+      <classes>
+         <class name = "com.training.sanity.tests.ReturnOrderTest" />
       </classes>
    </test>
 </suite>	

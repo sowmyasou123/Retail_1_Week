@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
@@ -37,14 +38,17 @@ public class AddEditCategoryTest {
 	}
 
 	@BeforeMethod
-	public void setUp() throws Exception {
-		driver = DriverFactory.getDriver(DriverNames.CHROME);
+	@Parameters("browser")
+	public void setUp(String browser) throws Exception {
+		if(browser.equalsIgnoreCase("firefox")){
+		driver = DriverFactory.getDriver(DriverNames.FIREFOX);
 		loginadminpom = new LoginAdminPOM(driver);
 		addeditcategory= new AddEditCategoryPOM(driver);
 		adminUrl = properties.getProperty("adminURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(adminUrl);
+		}
 	}
 	
 	@AfterMethod

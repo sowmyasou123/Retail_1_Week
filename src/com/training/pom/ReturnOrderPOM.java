@@ -44,7 +44,7 @@ public class ReturnOrderPOM {
 	}
 	public void mouseOverOnMyOrdersandClick(){
 		Actions action= new Actions(driver);
-		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebDriverWait wait = new WebDriverWait(driver,20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Menu_Wmt3OMY3']/nav/ul/li[2]/ul/li[3]/a/span")));
 		action.moveToElement(myorders).build().perform();
 		myorders.click();
@@ -70,7 +70,7 @@ public class ReturnOrderPOM {
 	}
 	public void mouseOverOnIcon(){
 		Actions action= new Actions(driver);
-		WebDriverWait wait = new WebDriverWait(driver,10);
+		WebDriverWait wait = new WebDriverWait(driver,20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Menu_Wmt3OMY3']/nav/ul/li[2]/a")));
 		action.moveToElement(icon).build().perform();
 		

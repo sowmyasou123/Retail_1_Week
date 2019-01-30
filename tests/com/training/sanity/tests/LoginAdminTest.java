@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
@@ -34,15 +35,18 @@ public class LoginAdminTest {
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 	}
-
+	
 	@BeforeMethod
-	public void setUp() throws Exception {
+	@Parameters("browser")
+	public void setUp(String browser) throws Exception {
+		if(browser.equalsIgnoreCase("firefox")){
 		driver = DriverFactory.getDriver(DriverNames.FIREFOX);
 		loginadminpom = new LoginAdminPOM(driver);
 		adminURL = properties.getProperty("adminURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(adminURL);
+		}
 	}
 
 	@AfterMethod

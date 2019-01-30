@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26676" started-at="2019-01-19T12:48:32Z" finished-at="2019-01-19T12:48:58Z">
+  <suite name="Default suite" duration-ms="54792" started-at="2019-01-30T15:39:26Z" finished-at="2019-01-30T15:40:21Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26676" started-at="2019-01-19T12:48:32Z" finished-at="2019-01-19T12:48:58Z">
-      <class name="com.training.sanity.tests.DeleteCategoryTest">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.DeleteCategoryTest@5c7fa833]" name="setUpBeforeClass" is-config="true" duration-ms="16" started-at="2019-01-19T18:18:32Z" finished-at="2019-01-19T18:18:32Z">
+    <test name="Default test" duration-ms="54792" started-at="2019-01-30T15:39:26Z" finished-at="2019-01-30T15:40:21Z">
+      <class name="com.training.sanity.tests.PreLoginOrderTest">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.PreLoginOrderTest@5c7fa833]" name="setUpBeforeClass" is-config="true" duration-ms="0" started-at="2019-01-30T21:09:26Z" finished-at="2019-01-30T21:09:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.DeleteCategoryTest@5c7fa833]" name="setUp" is-config="true" duration-ms="6424" started-at="2019-01-19T18:18:32Z" finished-at="2019-01-19T18:18:38Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.PreLoginOrderTest@5c7fa833]" name="setUp" is-config="true" duration-ms="12616" started-at="2019-01-30T21:09:26Z" finished-at="2019-01-30T21:09:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="AddCategories()[pri:0, instance:com.training.sanity.tests.DeleteCategoryTest@5c7fa833]" name="AddCategories" duration-ms="7201" started-at="2019-01-19T18:18:38Z" finished-at="2019-01-19T18:18:45Z">
+        <test-method status="PASS" signature="AdminLogin()[pri:0, instance:com.training.sanity.tests.PreLoginOrderTest@5c7fa833]" name="AdminLogin" duration-ms="40054" started-at="2019-01-30T21:09:39Z" finished-at="2019-01-30T21:10:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddCategories -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.DeleteCategoryTest@5c7fa833]" name="tearDown" is-config="true" duration-ms="1709" started-at="2019-01-19T18:18:45Z" finished-at="2019-01-19T18:18:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.DeleteCategoryTest@5c7fa833]" name="setUp" is-config="true" duration-ms="5701" started-at="2019-01-19T18:18:47Z" finished-at="2019-01-19T18:18:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="DeleteCategories()[pri:0, instance:com.training.sanity.tests.DeleteCategoryTest@5c7fa833]" name="DeleteCategories" duration-ms="3950" started-at="2019-01-19T18:18:53Z" finished-at="2019-01-19T18:18:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DeleteCategories -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.DeleteCategoryTest@5c7fa833]" name="tearDown" is-config="true" duration-ms="1672" started-at="2019-01-19T18:18:57Z" finished-at="2019-01-19T18:18:58Z">
+        </test-method> <!-- AdminLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.PreLoginOrderTest@5c7fa833]" name="tearDown" is-config="true" duration-ms="2090" started-at="2019-01-30T21:10:19Z" finished-at="2019-01-30T21:10:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.DeleteCategoryTest -->
+      </class> <!-- com.training.sanity.tests.PreLoginOrderTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
